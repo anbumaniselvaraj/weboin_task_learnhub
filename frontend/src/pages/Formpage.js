@@ -23,7 +23,7 @@ function Form() {
 
   const fetchForms = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/forms");
+      const response = await axios.get("https://weboin-task-learnhub-backend.vercel.app/api/form");
       setSubmittedForms(response.data);
     } catch (error) {
       console.error("Error fetching forms:", error);
