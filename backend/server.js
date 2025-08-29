@@ -6,31 +6,29 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 5000;
 
+// ✅ CORS Setup
 const corsOptions = {
-  origin: process.env.APPLICATION_URL,
+  origin: process.env.APPLICATION_URL, // e.g. https://your-frontend.vercel.app
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 };
-
 app.use(cors(corsOptions));
 
-app.use(cors());
 app.use(express.json());
 
-// MongoDB connection
+// ✅ MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 .then(() => console.log('MongoDB connected'))
-.catch(err => console.log(err));
+.catch(err => console.error(err));
 
-// Routes
+// ✅ Routes
 const formRoutes = require('./routes/routerForm');
 app.use('/api/forms', formRoutes);
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+// ❌ Remove app.listen()
+// ✅ Export app for Vercel
+module.exports = app;
