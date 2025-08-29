@@ -54,9 +54,9 @@ function Form() {
 
     try {
       if (isEditing) {
-        await axios.put(`http://localhost:5000/api/forms/${currentId}`, formData);
+        await axios.put(`"https://weboin-task-learnhub-backend.vercel.app/api/form/${currentId}`, formData);
       } else {
-        await axios.post("http://localhost:5000/api/forms", formData);
+        await axios.post(`"https://weboin-task-learnhub-backend.vercel.app/api/form"`, formData);
       }
       fetchForms();
       setFormData({
@@ -89,7 +89,7 @@ function Form() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/forms/${id}`);
+      await axios.delete(`"https://weboin-task-learnhub-backend.vercel.app/api/form/${id}`);
       fetchForms();
     } catch (error) {
       console.error("Error deleting form:", error);
