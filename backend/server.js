@@ -27,7 +27,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // ✅ Routes
 const formRoutes = require('./routes/routerForm');
-app.use('/api/forms', formRoutes);
+app.use('/api/form', formRoutes);
 
 // ❌ Remove app.listen()
 // ✅ Export app for Vercel
