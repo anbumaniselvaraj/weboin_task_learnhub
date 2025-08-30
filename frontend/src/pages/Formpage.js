@@ -56,7 +56,7 @@ function Form() {
       if (isEditing) {
         await axios.put(`https://weboin-task-learnhub-backend.vercel.app/api/forms/${currentId}`, formData);
       } else {
-        await axios.post(`https://weboin-task-learnhub-backend.vercel.app/api/forms`, formData);
+        await axios.post("https://weboin-task-learnhub-backend.vercel.app/api/forms", formData);
       }
       fetchForms();
       setFormData({
